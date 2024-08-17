@@ -7,8 +7,8 @@
     <title>Sign In</title>
 </head>
 <body>
-<a href="/weblog_project" class="w3-bar-item w3-button w3-pale-green">Home</a>
-<a href="/weblog_project/sign_up.php" class="w3-bar-item w3-button w3-pale-green">Sign UP</a>
+<a href="index.php" class="w3-bar-item w3-button w3-pale-green">Home</a>
+<a href="sign_up.php" class="w3-bar-item w3-button w3-pale-green">Sign UP</a>
 
 
     <center>
@@ -30,7 +30,7 @@
 
         if(isset($_POST["signIn"])) {
 
-            $user_information = searchUser($_POST['email']);
+            $user_information = User::searchUser($_POST['email']);
 
             if($user_information != null) {
                 if(password_verify($_POST['password'],$user_information['password'])) {

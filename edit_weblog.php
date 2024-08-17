@@ -6,8 +6,8 @@
     <title>Edit Weblog</title>
 </head>
     <body>
-    <a href="/weblog_project" class="w3-bar-item w3-button w3-pale-green">Home</a>
-    <a href="/weblog_project/admin.php" class="w3-bar-item w3-button w3-pale-green">Admin Panel</a>
+    <a href="index.php" class="w3-bar-item w3-button w3-pale-green">Home</a>
+    <a href="admin.php" class="w3-bar-item w3-button w3-pale-green">Admin Panel</a>
 
 
         <center>
@@ -34,9 +34,9 @@
             require_once'connect.php';
 
             if(isset($_POST['submit'])) {
-                $new_weblog = new Weblog($_POST['title'],searchUser($_SESSION['userEmail'])['fullName'], $_SESSION['userEmail'], $_POST['content']);
-                removeWeblog($_SESSION['userEmail'], $_SESSION['weblog']['id']);
+                $new_weblog = new Weblog($_POST['title'],User::searchUser($_SESSION['userEmail'])['fullName'], $_SESSION['userEmail'], $_POST['content']);
+                Weblog::removeWeblog($_SESSION['userEmail'], $_SESSION['weblog']['id']);
                 // $new_weblog->id= $_SESSION['weblog']['id'];
-                addWeblog($new_weblog);
+                Weblog::addWeblog($new_weblog);
                 header("location: admin.php");
             }

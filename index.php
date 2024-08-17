@@ -21,13 +21,13 @@
     
     if (isset($_SESSION['userEmail'])) {
         //echo "<a href='"."/weblog_project/" ."new_weblog.php' class='w3-bar-item w3-btn'>New Post</a>";
-        echo "<a href='"."/weblog_project/" ."admin.php' class='w3-bar-item w3-btn w3-pale-red'>Admin Panel</a>";
-        echo "<a href='"."/weblog_project/" ."sign_out.php' class='w3-bar-item w3-btn w3-pale-green'>Sign Out</a>";
-        echo searchUser($_SESSION['userEmail'])['fullName'] ;
+        echo "<a href='" ."admin.php' class='w3-bar-item w3-btn w3-pale-red'>Admin Panel</a>";
+        echo "<a href='" ."sign_out.php' class='w3-bar-item w3-btn w3-pale-green'>Sign Out</a>";
+        echo User::searchUser($_SESSION['userEmail'])['fullName'] ;
     } else {
         // echo "<a href='"."/weblog_project/" ."index.php' class='w3-bar-item w3-btn'>Home</a>";
-        echo "<a href='"."/weblog_project/" ."sign_in.php' class='w3-bar-item w3-button w3-pale-red' >Sign IN</a>";
-        echo "<a href='"."/weblog_project/" ."sign_up.php' class='w3-bar-item w3-button w3-pale-yellow' >Sign UP</a>";
+        echo "<a href='" ."sign_in.php' class='w3-bar-item w3-button w3-pale-red' >Sign IN</a>";
+        echo "<a href='" ."sign_up.php' class='w3-bar-item w3-button w3-pale-yellow' >Sign UP</a>";
 
     }
     ?>
@@ -36,7 +36,7 @@
 <p align="center">
         <?php
          echo "<br>";
-         listWeblogs() ;
+         Weblog::listWeblogs() ;
         ?>
     </p>
 </body>

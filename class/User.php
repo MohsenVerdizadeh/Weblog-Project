@@ -40,6 +40,7 @@ class User
         unset($this->weblogs[$weblog->getTitle()]);
     }
 
+    // this function get username and get array of user information but if user doesnt exist then it give null
     public  static function searchUser(string $userEmail)
     {
         $users = json_decode(file_get_contents('database/users.txt'), true);
@@ -56,6 +57,20 @@ class User
         $users = json_decode(file_get_contents('database/users.txt'), true);
         $users[$user->getEmail()] = $user;
         file_put_contents('database/users.txt', json_encode($users));
+    }
+
+    public static function listUserWeblogs(string $userEmail)
+    {
+        $userWeblogs = User::searchUser($userEmail)['weblogs'];
+        if (count($userWeblogs) == 0) {
+            echo'you dont have any weblogs'."<br>";
+
+        } else {
+            foreach ($userWeblogs as $id => $weblog) {
+                echo "<a href='show_weblog.php?id=".$id."'>".$weblog['title'] . "</a>"."<br>";
+            }
+        }
+
     }
     public function toArray()
     {

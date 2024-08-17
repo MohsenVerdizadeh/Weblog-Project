@@ -7,8 +7,8 @@
     <title>Sign UP</title>
 </head>
 <body>
-<a href="/weblog_project" class="w3-bar-item w3-button w3-pale-green">Home</a>
-<a href="/weblog_project/sign_in.php" class="w3-bar-item w3-button w3-pale-green">Sign IN</a>
+<a href="index.php" class="w3-bar-item w3-button w3-pale-green">Home</a>
+<a href="sign_in.php" class="w3-bar-item w3-button w3-pale-green">Sign IN</a>
 
     <center>
         <h2>Sign UP</h2>
@@ -29,9 +29,9 @@
         
 
         if(isset($_POST['signUp'])) {
-            if(searchUser($_POST['email']) == null) {
+            if(User::searchUser($_POST['email']) == null) {
                 $new_user = new User($_POST['fullName'], $_POST['email'],password_hash( $_POST['password'],PASSWORD_DEFAULT));
-                addUser($new_user);
+                User::addUser($new_user);
                 $_SESSION['userEmail'] = $new_user->getEmail();
                 header("location: admin.php");
             } else {

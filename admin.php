@@ -16,16 +16,16 @@ require_once 'security.php';
 <body>
     <h2 class="w3-container w3-teal w3-center">Admin Dashboard</h2>
     <div class="w3-container w3-center">
-    <a href="/weblog_project" class="w3-bar-item w3-button w3-pale-green">Home</a>
-    <a href="/weblog_project/sign_out.php" class="w3-bar-item w3-button w3-pale-red">Sign out</a>
+    <a href="index.php" class="w3-bar-item w3-button w3-pale-green">Home</a>
+    <a href="sign_out.php" class="w3-bar-item w3-button w3-pale-red">Sign out</a>
 
-        <p>Welcome <?php require_once 'connect.php'; echo searchUser($_SESSION['userEmail'])['fullName']; ?></p>
+        <p>Welcome <?php require_once 'connect.php'; echo User::searchUser($_SESSION['userEmail'])['fullName']; ?></p>
         <p><a href="add_weblog.php" class="w3-button w3-teal">Create new weblog</a></p>
         <p><h4>Your Weblogs</h4></p>
         <?php
 
         require_once'connect.php';
-        listUserWeblogs($_SESSION['userEmail']);
+        User::listUserWeblogs($_SESSION['userEmail']);
 
 
 
