@@ -17,7 +17,7 @@ $_SESSION['weblog'] = $weblog;
 </head>
 <body>
     <h2 class="w3-container w3-teal w3-center"><?php require_once('connect.php');
-echo $_SESSION['weblog']['title']."<br>"."Author: ".searchUser( $_SESSION['weblog']['authorEmail'])['fullname'] ?></h2>
+echo $_SESSION['weblog']['title']."<br>"."Author: ".searchUser( $_SESSION['weblog']['authorEmail'])['fullName'] ?></h2>
     <?php
 require_once('connect.php');
 echo "<a href='"."/weblog_project/" ."' class='w3-bar-item w3-button w3-pale-green' >Home</a>";

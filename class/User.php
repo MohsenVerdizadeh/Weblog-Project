@@ -2,22 +2,22 @@
 
 class User
 {
-    public $fullname;
+    public $fullName;
     public $email;
     public $password;
 
     public $weblogs;
 
-    public function __construct($fullname, $email, $password)
+    public function __construct($fullName, $email, $password)
     {
-        $this->fullname = $fullname;
+        $this->fullName = $fullName;
         $this->email = $email;
         $this->password = $password;
         $this->weblogs = [];
     }
-    public function getFullname()
+    public function getFullName()
     {
-        return $this->fullname;
+        return $this->fullName;
     }
     public function getEmail()
     {
@@ -60,7 +60,7 @@ class User
     public function toArray()
     {
         return [
-            'fullname' => $this->fullname,
+            'fullName' => $this->fullName,
             'email' => $this->email,
             'password' => $this->password,
             'weblogs' => $this->weblogs

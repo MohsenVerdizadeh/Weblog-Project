@@ -7,7 +7,7 @@
 </head>
     <body>
     <a href="/weblog_project" class="w3-bar-item w3-button w3-pale-green">Home</a>
-    <a href="/weblog_project/admin.php" class="w3-bar-item w3-button w3-pale-green">Admain Panel</a>
+    <a href="/weblog_project/admin.php" class="w3-bar-item w3-button w3-pale-green">Admin Panel</a>
 
 
         <center>
@@ -34,7 +34,7 @@
             require_once'connect.php';
 
             if(isset($_POST['submit'])) {
-                $new_weblog = new Weblog($_POST['title'],searchUser($_SESSION['userEmail'])['fullname'], $_SESSION['userEmail'], $_POST['content']);
+                $new_weblog = new Weblog($_POST['title'],searchUser($_SESSION['userEmail'])['fullName'], $_SESSION['userEmail'], $_POST['content']);
                 removeWeblog($_SESSION['userEmail'], $_SESSION['weblog']['id']);
                 // $new_weblog->id= $_SESSION['weblog']['id'];
                 addWeblog($new_weblog);

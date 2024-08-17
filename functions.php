@@ -26,7 +26,7 @@ function addWeblog($weblog)
     $author_information = searchUser($weblog->getAuthorEmail());
     $autor_weblogs = $author_information['weblogs'];
     $autor_weblogs[$weblog->id] = $weblog;
-    $new_user = new User($author_information['fullname'], $author_information['email'], $author_information['password']);
+    $new_user = new User($author_information['fullName'], $author_information['email'], $author_information['password']);
     $new_user->weblogs = $autor_weblogs;
     addUser($new_user);
 
@@ -73,7 +73,7 @@ function removeWeblog($userEmail, $id)
     // delete weblog
     unset($user_weblogs[$id]);
     //create new user with edited information
-    $new_user = new User($authorInformation["fullname"], $authorInformation["email"], $authorInformation["password"]);
+    $new_user = new User($authorInformation["fullName"], $authorInformation["email"], $authorInformation["password"]);
     $new_user->weblogs = $user_weblogs;
     // write in database
     addUser($new_user);
